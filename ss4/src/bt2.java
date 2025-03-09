@@ -9,7 +9,7 @@ public class bt2 {
             System.out.println("Không phải số nguyên tố");
         }else {
             for(int i=2;i<=Math.sqrt(num);i++){
-                if(num%i==0){
+                if(num % i ==0){
                     System.out.printf(" %d không phải số nguyên tố",num);
                     break;
                 }
