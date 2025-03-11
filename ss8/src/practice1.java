@@ -27,7 +27,7 @@ public class practice1 {
                     n = Integer.parseInt(sc.nextLine());
                     for (int i = 0; i < n; i++) {
                         System.out.printf("arr[%d] = : \n", i);
-                        i = Integer.parseInt(sc.nextLine());
+                        arr[i] = Integer.parseInt(sc.nextLine());
                     }
                     break;
                 case 2:

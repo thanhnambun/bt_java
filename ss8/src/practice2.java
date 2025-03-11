@@ -57,12 +57,23 @@ public class practice2 {
                     System.out.println("Các phần tử trên đường biên, chéo chính, chéo phụ:");
                     for (int i = 0; i < n; i++) {
                         for (int j = 0; j < m; j++) {
-                            if (i == 0 || i == n - 1 || j == 0 || j == m - 1 || i == j || i + j == n - 1) {
-                                System.out.print(matrix[i][j] + " ");
-                                sum += matrix[i][j];
-                            } else {
-                                System.out.print("  ");
+                            if (m == n ){
+                                if (i == 0 || i == n - 1 || j == 0 || j == m - 1 || i == j || i + j == n - 1) {
+                                    System.out.print(matrix[i][j] + " ");
+                                    sum += matrix[i][j];
+                                } else {
+                                    System.out.print("  ");
+                                }
+                            }else {
+                                System.out.println("không cos đuường chéo chính và phụ trong ma trận ");
+                                if (i == 0 || i == n - 1 || j == 0 || j == m - 1){
+                                    System.out.print(matrix[i][j] + " ");
+                                    sum += matrix[i][j];
+                                } else {
+                                    System.out.print("  ");
+                                }
                             }
+
                         }
                         System.out.println();
                     }
