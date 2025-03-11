@@ -8,7 +8,7 @@ public class bt8 {
         int n = sc.nextInt();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i <= n; i++) {
-            int random = (int) (Math.random() * chars.length());
+            int random = (int) Math.floor(Math.random() * chars.length());
             sb.append(chars.charAt(random));
         }
         System.out.println(sb);
