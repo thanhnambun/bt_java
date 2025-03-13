@@ -14,7 +14,6 @@ public class Fraction {
         int newNumerator = this.numerator * other.denominator + other.numerator * this.denominator;
         int newDenominator = this.denominator * other.denominator;
         Fraction result = new Fraction(newNumerator, newDenominator);
-        result.simplify();
         return result;
     }
 
@@ -22,7 +21,7 @@ public class Fraction {
         int newNumerator = this.numerator * other.denominator - other.numerator * this.denominator;
         int newDenominator = this.denominator * other.denominator;
         Fraction result = new Fraction(newNumerator, newDenominator);
-        result.simplify();
+
         return result;
     }
 
@@ -30,7 +29,6 @@ public class Fraction {
         int newNumerator = this.numerator * other.numerator;
         int newDenominator = this.denominator * other.denominator;
         Fraction result = new Fraction(newNumerator, newDenominator);
-        result.simplify();
         return result;
     }
 
