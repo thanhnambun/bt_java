@@ -297,25 +297,43 @@ public class BookManagement {
     }
 
     public static void statisticalBookbyAuthor(Scanner sc) {
+        if (currentIndex == 0) {
+            System.out.println("Không có sách nào.");
+            return;
+        }
         String[] newAuthors = new String[currentIndex];
+        int authorCount = 0;
         for (int i = 0; i < currentIndex; i++) {
-            for (int j = i + 1; j < currentIndex; j++) {
-                if (arrBook[j].getAuthor().equals(newAuthors[i])) {
-                    continue;
-                }else{
-                    newAuthors[i] = arrBook[j].getAuthor();
+            String author = arrBook[i].getAuthor();
+            boolean exists = false;
+
+            for (int k = 0; k < authorCount; k++) {
+                if (newAuthors[k].equalsIgnoreCase(author)) {
+                    exists = true;
+                    break;
                 }
             }
+            if (!exists) {
+                newAuthors[authorCount] = author;
+                authorCount++;
+            }
         }
-        for (int i = 0; i < newAuthors.length; i++) {
-            System.out.println(newAuthors[i]+ "có những cuốn sách sau : ");
+        for (int i = 0; i < authorCount; i++) {
+            String author = newAuthors[i];
+            System.out.println("\nTác giả: " + author + " có những cuốn sách sau:");
+
+            boolean check = false;
+
             for (int j = 0; j < currentIndex; j++) {
-                if (arrBook[j].getAuthor().equals(newAuthors[i])) {
-                    System.out.println(arrBook[j].getBookName());
-                }else {
-                    System.out.println("tác giả này o có cuốn sacách nnafo");
+                if (arrBook[j].getAuthor().equalsIgnoreCase(author)) {
+                    System.out.println("- " + arrBook[j].getBookName());
+                    check = true;
                 }
+            }
+            if (!check) {
+                System.out.println("Không có cuốn sách nào.");
             }
         }
     }
+
 }
