@@ -38,7 +38,6 @@ Tập trung vào chia sẻ và mở rộng hành vi.	Tập trung vào bảo vệ
         public void main(String[] args) {
             Dog dog = new Dog();
             dog.name = "Chó Mực";
-
             dog.eat();
             dog.bark();
         }

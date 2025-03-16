@@ -1,0 +1,11 @@
+1. Overloading (Nạp chồng phương thức):
+
+Là khi bạn định nghĩa nhiều phương thức cùng tên trong cùng một lớp, nhưng khác nhau về số lượng hoặc kiểu dữ liệu tham số.
+Trình biên dịch sẽ quyết định phương thức nào được gọi dựa trên tham số tại thời điểm biên dịch (compile time).
+
+Mục đích là để tăng tính linh hoạt, cho phép gọi cùng một tên phương thức nhưng với các dữ liệu khác nhau.
+2. Overriding (Ghi đè phương thức):
+
+Là khi lớp con định nghĩa lại một phương thức đã có trong lớp cha, giữ nguyên tên và tham số nhưng thay đổi nội dung thực thi.
+Việc ghi đè xảy ra tại thời điểm chạy (runtime), giúp lớp con có thể thay đổi hoặc mở rộng hành vi của phương thức kế thừa từ lớp cha.
+Mục đích là để tùy biến hành vi cho lớp con dựa trên hành động đã định nghĩa ở lớp cha.

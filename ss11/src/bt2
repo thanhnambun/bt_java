@@ -1,0 +1,33 @@
+1. Định nghĩa tính trừu tượng trong OOP:
+
+Tính trừu tượng (Abstraction) là một trong những đặc điểm quan trọng của lập trình hướng đối tượng (OOP). Nó cho phép ẩn giấu các chi tiết phức tạp về cách một đối tượng hoạt động bên trong và chỉ cung cấp những thông tin cần thiết cho bên ngoài sử dụng. Nhờ tính trừu tượng, người lập trình có thể tập trung vào những khái niệm cốt lõi, giúp hệ thống trở nên rõ ràng, dễ bảo trì và mở rộng. Tính trừu tượng đóng vai trò đơn giản hóa sự phức tạp và giúp quản lý hệ thống phần mềm lớn một cách hiệu quả.
+
+2. Các cách Java hỗ trợ tính trừu tượng:
+
+Trong Java, tính trừu tượng được hỗ trợ thông qua:
+
+Lớp trừu tượng (abstract class): Là một lớp không thể khởi tạo trực tiếp, có thể chứa các phương thức trừu tượng (không có thân hàm) và phương thức thông thường. Dùng để định nghĩa hành vi chung cho các lớp con kế thừa.
+Giao diện (interface): Chỉ định nghĩa các phương thức (từ Java 8 trở đi có thêm phương thức mặc định và tĩnh), không chứa bất kỳ logic nào. Các lớp thực thi interface phải triển khai tất cả các phương thức bên trong interface đó.
+3. Liên hệ thực tế về tính trừu tượng:
+
+Ví dụ, khi bạn sử dụng máy ATM, bạn chỉ cần biết thao tác nhập mã PIN, rút tiền hoặc kiểm tra số dư. Bạn không cần quan tâm bên trong máy xử lý giao dịch như thế nào, các thuật toán bảo mật ra sao, hoặc làm thế nào để kết nối đến ngân hàng. Đây chính là tính trừu tượng: che giấu sự phức tạp và chỉ cung cấp một giao diện đơn giản, dễ hiểu cho người dùng.
+
+Hoặc khi lái ô tô, bạn chỉ cần biết cách điều khiển vô lăng, nhấn ga hoặc phanh mà không cần biết động cơ hoạt động thế nào hay nhiên liệu được đốt cháy ra sao.
+
+4. Phân tích ngắn gọn ưu điểm và hạn chế khi sử dụng tính trừu tượng:
+
+Ưu điểm:
+
+Giảm sự phức tạp, tập trung vào chức năng chính.
+Tăng tính bảo mật: Người dùng không thấy hoặc không can thiệp được vào chi tiết thực thi bên trong.
+Dễ bảo trì và mở rộng hệ thống khi các chi tiết được quản lý độc lập.
+Hạn chế:
+
+Quá lạm dụng tính trừu tượng có thể làm hệ thống trở nên khó hiểu đối với người mới tiếp cận.
+Việc thiết kế lớp trừu tượng hoặc interface không hợp lý dễ gây rắc rối trong kế thừa và bảo trì mã nguồn.
+5. Sự khác biệt giữa lớp trừu tượng và giao diện trong Java:
+
+Lớp trừu tượng	Giao diện (Interface)
+Có thể chứa cả phương thức trừu tượng và phương thức thông thường (đã cài đặt).	Chỉ chứa các phương thức trừu tượng (Java 7 trở xuống); từ Java 8 trở đi có thể có phương thức mặc định và tĩnh.
+Hỗ trợ các thuộc tính có trạng thái (biến instance).	Các thuộc tính trong interface mặc định là public static final (hằng số).
+Kế thừa extends (1 lớp cha).	Thực thi implements (đa kế thừa interface được).
