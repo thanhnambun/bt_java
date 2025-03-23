@@ -1,5 +1,6 @@
 package presentation;
 
+import business.StudentBusiness;
 import entity.Student;
 
 import java.util.Scanner;
@@ -24,16 +25,22 @@ public class StudentApplication {
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
+                    StudentBusiness.showStudent(scanner);
                     break;
                 case 2:
+                    StudentBusiness.addStudent(scanner);
                     break;
                 case 3:
+                    StudentBusiness.updateStudent(scanner);
                     break;
                 case 4:
+                    StudentBusiness.deleteStudent(scanner);
                     break;
                 case 5:
+                    StudentBusiness.searchStudent(scanner);
                     break;
                 case 6:
+                    StudentBusiness.sortStudent(scanner);
                     break;
                 case 7:
                     System.out.println("đã thoát chương trình ");

@@ -1,8 +1,6 @@
 package validate;
 
 import presentation.StudentApplication;
-
-import java.text.ParseException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -33,7 +31,6 @@ public class Validator {
             System.err.println("Không được để trống.");
         } while (true);
     }
-
 
     public static String validateBirthday(Scanner scanner, String message) {
         String birthday;
