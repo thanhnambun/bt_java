@@ -1,79 +1,76 @@
 package validate;
 
+import entity.Book;
+import presentation.BookApplication;
+
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+
 public class Validator {
-    public static String setID(Scanner scanner, String message, String regex) {
+    public static String isIdExit(Scanner sc,String value) {
+        for(Book b:BookApplication.bookArrayList){
+            if(b.getId().equals(value)){
+                return "id đã tồn tại";
+            }
+        }
+        return value;
+    }
+    public static String validateId(Scanner scanner, String message) {
         System.out.println(message);
         do {
             String inputString = scanner.nextLine();
-            if (Pattern.matches(regex, inputString)) {
+            if (Pattern.matches("(B)\\w(5)", inputString)) {
                 return inputString;
             }
             System.err.println("Dữ liệu không hợp lệ, vui lòng nhập lại");
         } while (true);
     }
 
-    public static String setBookTitle(Scanner sc , String message) {
-        String name;
+    public static String inputString(Scanner sc, int maxLength) {
+        String input;
         do {
-            System.out.print(message);
-            name = sc.nextLine().trim();
-            if (!name.isEmpty()) {
-                return name;
+            input = sc.nextLine().trim();
+            if (input.isEmpty() || input.length() > maxLength) {
+                System.out.printf("Không được để trống và tối đa %d ký tự. Nhập lại:\n", maxLength);
+            } else {
+                break;
             }
-            System.err.println("Không được để trống.");
         } while (true);
+        return input;
     }
 
-    public static String setAuthor(Scanner sc , String message) {
-        String author;
+    public static int inputPositiveInt(Scanner sc) {
+        int num;
         do {
-            System.out.print(message);
-            author = sc.nextLine().trim();
-            if (author == null || author.trim().isEmpty() || author.length() < 50) {
-                return author;
+            try {
+                num = Integer.parseInt(sc.nextLine());
+                if (num <= 0) {
+                    System.out.println("Phải nhập số lớn hơn 0. Nhập lại:");
+                } else {
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Không đúng định dạng. Nhập lại:");
             }
-        }while (true);
+        } while (true);
+        return num;
     }
 
-    public static String setPublisherOrCategory (Scanner sc , String message) {
-        String publisher;
+    public static double inputPositiveDouble(Scanner sc) {
+        double num;
         do {
-            System.out.print(message);
-            publisher = sc.nextLine().trim();
-            if (publisher == null || publisher.trim().isEmpty() || publisher.length() < 100) {
-                return publisher;
-            }else {
-                System.out.println("không được để trống và tối đa 100 ký tự");
+            try {
+                num = Double.parseDouble(sc.nextLine());
+                if (num <= 0) {
+                    System.out.println("Phải nhập số lớn hơn 0. Nhập lại:");
+                } else {
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Không đúng định dạng. Nhập lại:");
             }
-        }while (true);
-    }
-
-    public static int setPublicationYearOrQuantity(Scanner sc , String message) {
-        int publicationYear;
-        do {
-            System.out.print(message);
-            publicationYear = sc.nextInt();
-            if (publicationYear <= 0) {
-                System.out.println("lỗi" );
-            }else {
-                return publicationYear;
-            }
-        }while (true);
-    }
-
-    public static double setPrice(Scanner sc , String message) {
-        double price;
-        do {
-            System.out.print(message);
-            price = sc.nextDouble();
-            if (price <= 0) {
-                System.out.println("Giá sách không hợp lệ (phải lớn hơn 0).");
-            }else {
-                return price;
-            }
-        }while (true);
+        } while (true);
+        return num;
     }
 }

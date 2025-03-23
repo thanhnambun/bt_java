@@ -94,51 +94,38 @@ public class Book implements IApp {
 
     @Override
     public void inputData(Scanner sc) {
-        this.id = inputId(sc);
-        this.bookTitle = inputBookTitle(sc);
-        this.bookAuthor = inputBookAuthor(sc);
-        this.publisher = inputPublication(sc);
-        this.category = inputCategory(sc);
-        this.publicationYear = inputPublicationYear(sc);
-        this.quantity = inputQuantity(sc);
-        this.price = inputPrice(sc);
+        this.id = intputId(sc);
+        System.out.println("Nhập tiêu đề sách:");
+        this.bookTitle = Validator.inputString(sc, 100);
+
+        System.out.println("Nhập tác giả:");
+        this.bookAuthor = Validator.inputString(sc, 50);
+
+        System.out.println("Nhập nhà xuất bản:");
+        this.publisher = Validator.inputString(sc, 100);
+
+        System.out.println("Nhập năm xuất bản:");
+        this.publicationYear = Validator.inputPositiveInt(sc);
+
+        System.out.println("Nhập thể loại:");
+        this.category = Validator.inputString(sc, 100);
+
+        System.out.println("Nhập giá sách:");
+        this.price = Validator.inputPositiveDouble(sc);
+
+        System.out.println("Nhập số lượng sách:");
+        this.quantity = Validator.inputPositiveInt(sc);
     }
 
     @Override
     public void displayData() {
-
-
+        System.out.printf("| ID: %s | Title: %s | Author: %s | Publisher: %s | Year: %d | Category: %s | Price: %.2f | Quantity: %d |\n",
+                id, bookTitle, bookAuthor, publisher, publicationYear, category, price, quantity);
+    }
+    public String intputId(Scanner sc) {
+        String id = Validator.validateId(sc,"vui lòng nhập id");
+        return Validator.isIdExit(sc,id);
     }
 
-    public String inputId(Scanner sc) {
-        return Validator.setID(sc, "vui lòng nhập mã sách", "(B)\\w(5)");
-    }
 
-    public String inputBookTitle(Scanner sc) {
-        return Validator.setBookTitle(sc, "vui lòng nhâập tên sahc");
-    }
-
-    public String inputBookAuthor(Scanner sc) {
-        return Validator.setAuthor(sc, "vui lòng nhập tên tác giả ");
-    }
-
-    public String inputPublication(Scanner sc) {
-        return Validator.setPublisherOrCategory(sc, "vui lòng nhập nhà xuất bản");
-    }
-
-    public Integer inputPublicationYear(Scanner sc) {
-        return Validator.setPublicationYearOrQuantity(sc, "vui lòng nhập năm sản xuất ");
-    }
-
-    public String inputCategory(Scanner sc) {
-        return Validator.setPublisherOrCategory(sc, "vui lòng nhaaoj thể loại");
-    }
-
-    public double inputPrice(Scanner sc) {
-        return Validator.setPrice(sc, "vui lòng nhập giá");
-    }
-
-    public Integer inputQuantity(Scanner sc) {
-        return Validator.setPublicationYearOrQuantity(sc, "vui lòng nhập số lượng sanr phẩm ");
-    }
 }
