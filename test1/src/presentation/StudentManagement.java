@@ -10,7 +10,7 @@ public class StudentManagement {
         int choice;
 
         do {
-            System.out.println("\n--- Quản lý Sinh viên ---");
+            System.out.println("Quản lý Sinh viên");
             System.out.println("1. Danh sách sinh viên");
             System.out.println("2. Thêm sinh viên");
             System.out.println("3. Xóa sinh viên");
@@ -26,7 +26,7 @@ public class StudentManagement {
             switch (choice) {
                 case 1:
                     if (!studentList.isEmpty()) {
-                        System.out.println("\nDanh sách sinh viên:");
+                        System.out.println("Danh sách sinh viên:");
                         for (Students student : studentList.values()) {
                             System.out.println(student);
                         }
