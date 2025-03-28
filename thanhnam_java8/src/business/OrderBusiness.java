@@ -22,14 +22,7 @@ public class OrderBusiness implements IOrderBusiness {
 
     @Override
     public void displayOrder() {
-        do {
-            System.out.println("1.danh sách đơn hàng");
-            System.out.println("2.thêm mơí đơn hàng");
-            System.out.println("3.cập nahat");
-            System.out.println("4. danh sách quá hạn");
-            System.out.println("5.danh sach đã giao");
-            System.out.println("6.");
-        }while (true);
+
     }
 
     @Override

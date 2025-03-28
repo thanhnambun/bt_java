@@ -12,7 +12,7 @@ public class ShopManagement {
     public static List<Order> orderList;
     public static List<Customer> customerList;
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         OrderBusiness orderBusiness = new OrderBusiness();
 
         while (true) {
@@ -20,14 +20,14 @@ public class ShopManagement {
             System.out.println("1. Quản lý khách hàng");
             System.out.println("2. Quản lý đơn hàng");
             System.out.println("3. Thoát");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            int choice = sc.nextInt();
+            sc.nextLine();
 
             if (choice == 1) {
-                CustomerBusiness.addCustomer(scanner);
+                CustomerBusiness.addCustomer(sc);
                 CustomerBusiness.displayCustomers();
             } else if (choice == 2) {
-                orderBusiness.addOrder(scanner);
+                orderBusiness.addOrder(sc);
                 orderBusiness.displayOrder();
             } else {
                 break;
