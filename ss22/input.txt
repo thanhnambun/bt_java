@@ -1,0 +1,1 @@
+Đây là nội dung của tệp input.txt. Chương trình sẽ sao chép nó.
