@@ -53,19 +53,21 @@ public class Validator {
         }
     }
     public static String validateString(Scanner sc, int min, int max) {
-        while (true) {
             System.out.println("vui lòng nhâp 1 chuỗi cần kiểm  tra từ  " + min + "đến " + max);
+            String string =null  ;
             try {
-                String string = sc.nextLine().trim();
-                if (string.isEmpty() && string.length() < min || string.length() > max) {
-                    System.out.println("vui lòng nhập lại ");
-                    break;
+                while (true) {
+                     string = sc.nextLine().trim();
+                    if (string.isEmpty() && string.length() < min || string.length() > max) {
+                        System.out.println("vui lòng nhập lại ");
+                        break;
+                    }
+                    return string;
                 }
-                return  string;
             } catch (Exception e) {
                 System.out.println("không đúng định dạng của chuỗi ");
             }
-        }
+        return string;
     }
 
     public static String validateEmail(Scanner scanner, String message) {
