@@ -37,7 +37,7 @@ public class CustomerValidate {
     public static String validatePhone(Scanner sc) {
         do {
             String phone = Validator.validateString(sc, 10, "vui lòng nhập số điện thoại");
-            if (Pattern.matches(EMAIL_REGEX, phone)) {
+            if (Pattern.matches(VIETNAM_PHONE_REGEX, phone)) {
                 return phone;
             }
         } while (true);
