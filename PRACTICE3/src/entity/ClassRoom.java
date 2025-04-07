@@ -5,16 +5,16 @@ import validate.StringRule;
 import validate.ValueDator;
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Optional;
-import java.util.OptionalInt;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.IntStream;
 
 import static business.CourseBussiness.courseList;
+import static business.CourseRegistrationBussiness.courseRegistrationList;
+import static business.StudentBussiness.studentList;
 import static business.TeachBussiness.teacherList;
 
 public class ClassRoom implements IApp {
+    public static final List<Student> stdClassRoomlist = new ArrayList<>();
     private static int classRoomIdSequence = 0;
     private int classRoomId;
     private String classRoomName;
@@ -24,7 +24,7 @@ public class ClassRoom implements IApp {
     private LocalDate created;
     private Status status;
 
-    private enum Status {PENDING, PROGESS, CLOSE};
+    public enum Status {PENDING, PROGESS, CLOSE};
 
     public ClassRoom() {
         this.classRoomId = ++classRoomIdSequence;
@@ -110,6 +110,7 @@ public class ClassRoom implements IApp {
         this.classRoomName = ClassRoomValidate.validateClassRoomName(sc);
         this.courseId=inputCourseId(sc);
         this.teacherId = inputTeacherId(sc);
+        listStudentClassRoom(this.courseId);
         this.created = ValueDator.validateDate("vui lòng nhập ngày tạo lớp hoc",sc);
         this.status = inputStatus(sc);
     }
@@ -168,6 +169,16 @@ public class ClassRoom implements IApp {
             }
             System.out.println("Lựa chọn không hợp lệ, vui lòng nhập lại!");
         }
+    }
+
+    public List<Student> listStudentClassRoom(String courseId) {
+         courseRegistrationList.stream().filter(course -> course.getCourseId().equals(courseId)).forEach(c->{
+           Optional<Student> stdClassRoom= studentList.stream().filter(s->s.getStudentId().equals(c.getCourseId())).findFirst();
+            if (stdClassRoom.isPresent()) {
+                stdClassRoomlist.add(stdClassRoom.get());
+            }
+       });
+         return  studentList;
     }
 
     @Override

@@ -1,6 +1,6 @@
 package presentation;
 
-import business.CourseBussiness;
+import business.*;
 
 import java.util.Scanner;
 
@@ -98,12 +98,16 @@ public class UniversityManager {
 
             switch (choice) {
                 case 1:
+                    TeachBussiness.sortTeacherList();
                     break;
                 case 2:
+                    TeachBussiness.addTeacher(scanner);
                     break;
                 case 3:
+                    TeachBussiness.updateTeacher(scanner);
                     break;
                 case 4:
+                    TeachBussiness.deleteTeacher(scanner);
                     break;
                 case 5:
                     System.out.println("Thoát giảng viên menu.");
@@ -128,12 +132,16 @@ public class UniversityManager {
 
             switch (choice) {
                 case 1:
+                    StudentBussiness.sortStudentList();
                     break;
                 case 2:
+                    StudentBussiness.addStudent(scanner);
                     break;
                 case 3:
+                    StudentBussiness.updateStudent(scanner);
                     break;
                 case 4:
+                    StudentBussiness.deleteStudent(scanner);
                     break;
                 case 5:
                     System.out.println("Thoát sinh viên menu.");
@@ -158,12 +166,16 @@ public class UniversityManager {
 
             switch (choice) {
                 case 1:
+                    CourseRegistrationBussiness.registerCourse(scanner);
                     break;
                 case 2:
+                    CourseRegistrationBussiness.cancelStudentRegistration(scanner);
                     break;
                 case 3:
+                    CourseRegistrationBussiness.approveRegistration(scanner);
                     break;
                 case 4:
+                    CourseRegistrationBussiness.viewStudentsByCourse(scanner);
                     break;
                 case 5:
                     System.out.println("Thoát đăng ký khóa học menu.");
@@ -192,20 +204,28 @@ public class UniversityManager {
 
             switch (choice) {
                 case 1:
+                    ClassRoomBussiness.sortClassByCreatedDate();
                     break;
                 case 2:
+                    ClassRoomBussiness.addClassRoom(scanner);
                     break;
                 case 3:
+                    ClassRoomBussiness.updateClassRoom(scanner);
                     break;
                 case 4:
+                    ClassRoomBussiness.deleteClassRoom(scanner);
                     break;
                 case 5:
+                    ClassRoomBussiness.assignTeacherToClass(scanner);
                     break;
                 case 6:
+                    ClassRoomBussiness.addStudentToClass(scanner);
                     break;
                 case 7:
+                    ClassRoomBussiness.ScheduleClassRoom(scanner);
                     break;
                 case 8:
+                    ClassRoomBussiness.updateClassStatus(scanner);
                     break;
                 case 9:
                     System.out.println("Thoát lớp học menu.");
@@ -231,14 +251,19 @@ public class UniversityManager {
 
             switch (choice) {
                 case 1:
+                    DashBoardBussiness.displayStatistics();
                     break;
                 case 2:
+                    DashBoardBussiness.maxcourseRegistration();
                     break;
                 case 3:
+                    DashBoardBussiness.maxcourseClassRoom();
                     break;
                 case 4:
+                    DashBoardBussiness.maxcourseTeacher();
                     break;
                 case 5:
+                    DashBoardBussiness.maxStudent();
                     break;
                 case 6:
                     System.out.println("Thoát thống kê menu.");

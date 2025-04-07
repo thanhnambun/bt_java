@@ -18,7 +18,7 @@ public class CourseRegistration implements IApp {
     private String courseId;
     private LocalDate date;
     private Enum status;
-    private enum Enum{
+    public enum Enum{
         PENDING, ENROLLED, DROPPED
     }
 
