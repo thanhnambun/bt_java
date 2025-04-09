@@ -1,4 +1,4 @@
-package bt10.business.config;
+package business.config;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class ConnectionDB {
     private static final String DRIVER = "";
-    private static final String URL = "jdbc:mysql://localhost:3306/Banking_DB";
+    private static final String URL = "jdbc:mysql://localhost:3306/manager";
     private static final String USER = "root";
     private static final String PASS = "265205";
     public static Connection openConnection() {

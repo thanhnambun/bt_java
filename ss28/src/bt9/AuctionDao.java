@@ -1,4 +1,5 @@
 package bt9;
 
-public class AuctionDao {
+public interface AuctionDao {
+    int placeBid(int userId, int auctionId, double bidAmount);
 }
