@@ -18,7 +18,7 @@ public class AccountDaoImp implements AccountDao<Account> {
             conn = ConnectionDB.openConnection();
             stmt = conn.prepareCall("{call find_all_list_acc}");
             ResultSet rs = stmt.executeQuery();
-            listAccount = new ArrayList<Account>();
+            listAccount = new ArrayList<>();
             while (rs.next()) {
                 Account account = new Account();
                 account.setAccId(rs.getInt("acc_id"));
@@ -118,7 +118,7 @@ public class AccountDaoImp implements AccountDao<Account> {
             callSt.setInt(3, accReceiverId);
             callSt.setString(4, accReceiverName);
             callSt.setDouble(5, amount);
-            callSt.registerOutParameter(6, Types.INTEGER);
+                callSt.registerOutParameter(6, Types.INTEGER);
             callSt.execute();
             conn.commit();
             return callSt.getInt(6);

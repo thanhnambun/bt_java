@@ -71,7 +71,7 @@ public class ValueDator {
 
     public static <T> String validateId(Scanner sc , String regex, List<T> nameList ){
         do {
-            String inputString = validateString(sc, new StringRule(), "vui lòng nhập id");
+            String inputString = validateString(sc, new StringRule(5,5), "vui lòng nhập id");
             if (Pattern.matches(regex, inputString)) {
                 Optional<T> checkID = nameList.stream().filter(name->name.equals(inputString)).findFirst();
                 if (checkID.isEmpty()) {
